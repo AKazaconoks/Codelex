@@ -3,11 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="b921d312-97dd-4926-8455-869db4941710" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Codelex.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Codelex.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/FlowOfControl/FlowControl/FlowControl.sln" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/FlowOfControl/FlowControl/FlowControl.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/FlowOfControl/FlowControl/GetTheCentury/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/FlowOfControl/FlowControl/GetTheCentury/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/FlowOfControl/FlowControl/LargestNumber/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/FlowOfControl/FlowControl/LargestNumber/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/FlowOfControl/FlowControl/PositiveNegativeNumber/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/FlowOfControl/FlowControl/PositiveNegativeNumber/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/FlowOfControl/FlowControl/TenBillion/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/FlowOfControl/FlowControl/TenBillion/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Arrays.sln" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Arrays.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise1/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise2/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise2/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise3/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise3/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise4/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise4/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise5/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise5/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/TicTacToe/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/TicTacToe/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1676886680036</updated>
       <workItem from="1676886680775" duration="1589000" />
-      <workItem from="1676900949857" duration="2337000" />
+      <workItem from="1676900949857" duration="3569000" />
     </task>
     <servers />
   </component>
