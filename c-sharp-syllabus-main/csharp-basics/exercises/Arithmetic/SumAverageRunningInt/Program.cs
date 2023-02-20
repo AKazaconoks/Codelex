@@ -15,6 +15,9 @@ namespace SumAverageRunningInt
             {
                 sum += number;
             }
+
+            Console.WriteLine("The sum of " + lowerBound + " to " + upperBound + " is " + sum);
+            Console.WriteLine("The average is " + ((double) (lowerBound + upperBound)/ 2));
         }
     }
 }
