@@ -10,13 +10,18 @@ namespace Exercise2
             
             Console.WriteLine("Input number of terms : ");
             n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Input number to multiply : ");
+            i = int.Parse(Console.ReadLine());
+            var result = i;
             /*
             todo - complete loop to multiply i with itself n times, it is NOT allowed to use Math.Pow()
             */
-            for (i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
             {
+                result *= i;
             }
 
+            Console.WriteLine(result);
             Console.ReadKey();
         }
     }

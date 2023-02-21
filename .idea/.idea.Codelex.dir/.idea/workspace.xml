@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b921d312-97dd-4926-8455-869db4941710" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Loops/Loops/Exercise9/Exercise9.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Codelex.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Codelex.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Arrays.sln" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Arrays.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise1/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise2/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise2/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise3/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise3/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise4/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise4/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise5/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/Exercise5/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/TicTacToe/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/TicTacToe/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arrays/Arrays/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Loops/Loops/Exercise1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Loops/Loops/Exercise1/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Loops/Loops/Exercise2/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Loops/Loops/Exercise2/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Loops/Loops/Exercise4/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Loops/Loops/Exercise4/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Loops/Loops/Loops.sln" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Loops/Loops/Loops.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Loops/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Loops/Loops/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,23 +31,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\antek\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\antek\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\antek\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\antek\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\antek\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\antek\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -59,7 +57,8 @@
       <option name="presentableId" value="Default" />
       <updated>1676886680036</updated>
       <workItem from="1676886680775" duration="1589000" />
-      <workItem from="1676900949857" duration="3569000" />
+      <workItem from="1676900949857" duration="4168000" />
+      <workItem from="1676978058896" duration="625000" />
     </task>
     <servers />
   </component>
