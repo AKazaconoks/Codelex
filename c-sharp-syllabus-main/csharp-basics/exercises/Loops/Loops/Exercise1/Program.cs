@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Exercise1
 {
@@ -6,12 +7,10 @@ namespace Exercise1
     {
         static void Main(string[] args)
         {
-            int i;
-
             Console.WriteLine("The first 10 natural numbers are: ");
-
-            //todo - write a program in C# to display the first 10 natural numbers
-
+            var list = new List<int>();
+            for(int i = 1; i < 11; i++) list.Add(i);
+            Console.Write(string.Join(" ", list));
         }
     }
 }
