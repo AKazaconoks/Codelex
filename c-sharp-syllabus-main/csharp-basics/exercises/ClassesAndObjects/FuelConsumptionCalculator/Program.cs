@@ -12,29 +12,33 @@ namespace FuelConsumptionCalculator
         {
             int startKilometers;
             int liters;
-            
-            Console.WriteLine();
+            int mileage;
 
-            Car car = new Car(0);
-            Car car1 = new Car(0);
-            for (int i = 0; i < 3; i++)
+            var list = new List<Car>();
+
+            while(true)
             {
+                Console.WriteLine("Enter car name: ");
+                var name = Console.ReadLine();
                 Console.Write("Enter first reading: ");
                 startKilometers = Convert.ToInt32(Console.ReadLine());    
                 Console.Write("Enter liters reading: ");
                 liters = Convert.ToInt32(Console.ReadLine());
-                car.FillUp(startKilometers, liters);
-                
-                Console.Write("Enter first reading: ");
-                startKilometers = Convert.ToInt32(Console.ReadLine());    
-                Console.Write("Enter liters reading: ");
-                liters = Convert.ToInt32(Console.ReadLine());
-                car1.FillUp(startKilometers, liters);
+                Car car = new Car(startKilometers, name);
+                Console.Write("Enter mileage: ");
+                mileage = Convert.ToInt32(Console.ReadLine());
+                car.FillUp(mileage, liters);
+                Console.WriteLine("Want to add another car?");
+                var input = Console.ReadLine();
+                list.Add(car);
+                if (input.Contains("n")) break;
             }
 
-            Console.WriteLine("Kilometers per liter are " + car.CalculateConsumption() + " gasHog:" + car.GasHog());
-            Console.WriteLine("Car1 Kilometers per liter are " + car1.CalculateConsumption()+ " economyCar:" + car.EconomyCar());
-            Console.ReadKey();
+            foreach (var car in list)
+            {
+                Console.WriteLine(car.getName() + " kilometers per liter are " + car.CalculateConsumption() + " car type:" + car.CarType());
+            }
+            
         }
     }
 }
