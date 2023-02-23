@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b921d312-97dd-4926-8455-869db4941710" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arithmetic/Exercise8/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/c-sharp-syllabus-main/csharp-basics/exercises/Arithmetic/Exercise8/Program.cs" afterDir="false" />
-    </list>
+    <list default="true" id="b921d312-97dd-4926-8455-869db4941710" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +51,7 @@
       <option name="presentableId" value="Default" />
       <updated>1676886680036</updated>
       <workItem from="1676886680775" duration="1583000" />
-      <workItem from="1677144331540" duration="1343000" />
+      <workItem from="1677144331540" duration="2114000" />
     </task>
     <task id="LOCAL-00001" summary="deleted .idea">
       <created>1677144383614</created>
