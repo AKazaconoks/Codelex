@@ -17,18 +17,18 @@ namespace BankAccount
 
     class Account
     {
-        private string name;
-        private double balance;
+        private string _name;
+        private double _balance;
 
         public Account(string name, double balance)
         {
-            this.name = name;
-            this.balance = balance;
+            _name = name;
+            _balance = balance;
         }
 
         public string ShowUserNameAndBalance()
         {
-            return $"{this.name}, {(this.balance < 0 ? "-" + (-this.balance).ToString("C") : this.balance.ToString())}";
+            return $"{_name}, {(_balance < 0 ? "-" + (-_balance).ToString("C") : _balance.ToString())}";
         }
     }
 }

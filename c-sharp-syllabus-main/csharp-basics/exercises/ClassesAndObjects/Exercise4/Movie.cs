@@ -4,27 +4,27 @@ namespace Exercise4
 {
     public class Movie
     {
-        private string title;
-        private string studio;
-        private string rating { get; }
+        private string _title;
+        private string _studio;
+        private string _rating { get; }
 
         public Movie(string title, string studio, string rating)
         {
-            this.title = title;
-            this.studio = studio;
-            this.rating = rating;
+            _title = title;
+            _studio = studio;
+            _rating = rating;
         }
 
         public Movie(string title, string studio)
         {
-            this.title = title;
-            this.studio = studio;
-            this.rating = "PG";
+            _title = title;
+            _studio = studio;
+            _rating = "PG";
         }
         
-        public Movie[] getPG (Movie[] movies)
+        public Movie[] GetPg (Movie[] movies)
         {
-            return movies.Where(m => m.rating == "PG").ToArray();
+            return movies.Where(m => m._rating == "PG").ToArray();
         }
     }
 }

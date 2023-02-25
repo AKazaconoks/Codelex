@@ -2,33 +2,33 @@
 {
     public class SavingsAccount
     {
-        private decimal rate;
-        private decimal balance;
+        private decimal _rate;
+        private decimal _balance;
 
         public SavingsAccount(decimal rate, decimal balance)
         {
-            this.rate = rate / 100;
-            this.balance = balance;
+            _rate = rate / 100;
+            _balance = balance;
         }
 
         public void withdraw(decimal amount)
         {
-            this.balance -= amount;
+            _balance -= amount;
         }
 
         public void deposit(decimal amount)
         {
-            this.balance += amount;
+            _balance += amount;
         }
 
         public void interest()
         {
-            balance += rate / 12 * balance;
+            _balance += _rate / 12 * _balance;
         }
 
         public decimal getBalance()
         {
-            return this.balance;
+            return _balance;
         }
     }
 }

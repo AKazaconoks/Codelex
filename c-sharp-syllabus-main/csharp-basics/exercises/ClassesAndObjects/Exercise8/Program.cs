@@ -8,31 +8,31 @@ namespace Exercise8
         {
             Point p1 = new Point(5, 2);
             Point p2 = new Point(-3, 6);
-            swapPoints(p1, p2);
-            Console.WriteLine("(" + p1.x + ", " + p1.y + ")");
-            Console.WriteLine("(" + p2.x + ", " + p2.y + ")");
+            SwapPoints(p1, p2);
+            Console.WriteLine("(" + p1._x + ", " + p1._y + ")");
+            Console.WriteLine("(" + p2._x + ", " + p2._y + ")");
         }
 
-        private static void swapPoints(Point p1, Point p2)
+        private static void SwapPoints(Point p1, Point p2)
         {
-            var tempX = p1.x;
-            var tempY = p1.y;
-            p1.x = p2.x;
-            p1.y = p2.y;
-            p2.x = tempX;
-            p2.y = tempY;
+            var tempX = p1._x;
+            var tempY = p1._y;
+            p1._x = p2._x;
+            p1._y = p2._y;
+            p2._x = tempX;
+            p2._y = tempY;
         }
     }
 
     internal class Point
     {
-        public int x { get; set; }
-        public int y { get; set; }
+        public int _x { get; set; }
+        public int _y { get; set; }
 
         public Point(int x, int y)
         {
-            this.x = x;
-            this.y = y;
+            _x = x;
+            _y = y;
         }
     }
 }

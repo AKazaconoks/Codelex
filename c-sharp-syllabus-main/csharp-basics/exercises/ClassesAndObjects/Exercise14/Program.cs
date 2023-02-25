@@ -14,7 +14,7 @@ namespace Exercise14
 
         public static void WeekdayInDutch(int year, int month, int day)
         {
-            DateTime dt = new DateTime(year, month, day);
+            var dt = new DateTime(year, month, day);
             Console.WriteLine(dt.ToString("dddd", CultureInfo.CreateSpecificCulture("nl-NL")));
         }
     }

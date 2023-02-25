@@ -8,15 +8,15 @@ namespace Exercise13
         {
             var s1 = new Smoothie(new string[] { "Banana" });
             Console.WriteLine(s1.Ingredients());
-            Console.WriteLine(s1.getCost());
-            Console.WriteLine(s1.getPrice());
-            Console.WriteLine(s1.getName());
+            Console.WriteLine(s1.GetCost());
+            Console.WriteLine(s1.GetPrice());
+            Console.WriteLine(s1.GetName());
 
             var s2 = new Smoothie(new string[] { "Raspberries", "Strawberries", "Blueberries" });
             Console.WriteLine(s2.Ingredients());
-            Console.WriteLine(s2.getCost());
-            Console.WriteLine(s2.getPrice());
-            Console.WriteLine(s2.getName());
+            Console.WriteLine(s2.GetCost());
+            Console.WriteLine(s2.GetPrice());
+            Console.WriteLine(s2.GetName());
         }
     }
 }

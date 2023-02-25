@@ -2,33 +2,33 @@
 {
     public class Dog
     {
-        private string name;
-        private string sex;
-        private Dog mother;
-        private Dog father;
+        private string _name;
+        private string _sex;
+        private Dog _mother;
+        private Dog _father;
 
         public Dog(string name, string sex)
         {
-            this.name = name;
-            this.sex = sex;
+            _name = name;
+            _sex = sex;
         }
 
-        public string getName()
+        public string GetName()
         {
-            return this.name;
+            return _name;
         }
 
-        public void setParents(Dog mother, Dog father)
+        public void SetParents(Dog mother, Dog father)
         {
-            this.mother = mother;
-            this.father = father;
+            _mother = mother;
+            _father = father;
         }
 
-        public string fathersName()
+        public string FathersName()
         {
             try
             {
-                return this.father.getName();
+                return _father.GetName();
             }
             catch
             {
@@ -36,11 +36,11 @@
             }
         }
         
-        public string mothersName()
+        public string MothersName()
         {
             try
             {
-                return this.mother.getName();
+                return _mother.GetName();
             }
             catch
             {
@@ -48,9 +48,9 @@
             }
         }
 
-        public bool hasSameMother(Dog dog)
+        public bool HasSameMother(Dog dog)
         {
-            return mothersName() == dog.mothersName();
+            return MothersName() == dog.MothersName();
         }
     }
 }

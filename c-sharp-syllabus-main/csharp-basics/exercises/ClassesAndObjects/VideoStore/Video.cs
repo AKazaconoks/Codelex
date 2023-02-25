@@ -5,43 +5,43 @@ namespace VideoStore
 {
     class Video
     {
-        private string title;
-        private bool isChecked;
-        private List<double> list;
+        private string _title;
+        private bool _isChecked;
+        private List<double> _list;
 
         public Video(string title)
         {
-            this.title = title;
-            this.isChecked = true;
-            this.list = new List<double>();
+            _title = title;
+            _isChecked = true;
+            _list = new List<double>();
         }
 
         public void BeingCheckedOut()
         {
-            this.isChecked = false;
+            _isChecked = false;
         }
 
         public void BeingReturned()
         {
-            this.isChecked = true;
+            _isChecked = true;
         }
 
         public void ReceivingRating(double rating)
         {
-            list.Add(rating);
+            _list.Add(rating);
         }
 
         public double AverageRating()
         {
-            return this.list.Sum() / this.list.Count;
+            return _list.Sum() /_list.Count;
         }
 
         public string Available()
         {
-            return isChecked ? "Available" : "Not available";
+            return _isChecked ? "Available" : "Not available";
         }
 
-        public string Title => this.title;
+        public string Title => _title;
 
         public override string ToString()
         {

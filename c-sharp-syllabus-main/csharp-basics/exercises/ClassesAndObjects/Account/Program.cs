@@ -10,11 +10,8 @@ namespace Account
     {
         private static void Main(string[] args)
         {
-            Account bartosAccount = new Account("Barto's account",100.00m);
-            Account bartosSwissAccount = new Account("Barto's account in Switzerland",1000000.00m);
-            Bank bank = new Bank();
-            bank.addAcount(bartosAccount);
-            bank.addAcount(bartosSwissAccount);
+            var bartosAccount = new Account("Barto's account",100.00m);
+            var bartosSwissAccount = new Account("Barto's account in Switzerland",1000000.00m);
 
             Console.WriteLine("Initial state");
             Console.WriteLine(bartosAccount);
@@ -25,11 +22,17 @@ namespace Account
             bartosSwissAccount.Deposit(200);
             Console.WriteLine($"Barto's Swiss account balance is now: {bartosSwissAccount.Balance()}");
             
-            bank.Transfer(bartosSwissAccount, bartosAccount, 10000.00m);
+            Transfer(bartosSwissAccount, bartosAccount, 10000.00m);
 
             Console.WriteLine("Final state");
             Console.WriteLine(bartosAccount);
             Console.WriteLine(bartosSwissAccount);
+        }
+        
+        public static void Transfer(Account from, Account to, decimal amount)
+        {
+            from.Withdrawal(amount);
+            to.Deposit(amount);
         }
     }
 }

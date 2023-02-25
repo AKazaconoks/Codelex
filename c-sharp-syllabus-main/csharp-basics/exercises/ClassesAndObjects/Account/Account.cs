@@ -2,39 +2,39 @@
 {
     public class Account
     {
-        private string name;
-        private decimal balance;
+        private string _name;
+        private decimal _balance;
 
         public Account(string name, decimal balance)
         {
-            this.name = name;
-            this.balance = balance;
+            _name = name;
+            _balance = balance;
         }
 
         public void Withdrawal(decimal withdrawAmount)
         {
-            this.balance -= withdrawAmount;
+            _balance -= withdrawAmount;
         }
 
         public void Deposit(decimal depositAmount)
         {
-            this.balance += depositAmount;
+            _balance += depositAmount;
         }
 
         public decimal Balance()
         {
-            return this.balance;
+            return _balance;
         }
 
         public override string ToString()
         {
-            return $"{this.name}: {this.balance.ToString("C")}";
+            return $"{_name}: {_balance.ToString("C")}";
         }
 
         public string Name
         {
-            get => this.name;
-            set => this.name = value;
+            get => _name;
+            set => _name = value;
         }
     }
 }

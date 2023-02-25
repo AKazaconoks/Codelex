@@ -5,32 +5,32 @@ namespace Exercise12
 {
     interface IStudent
     {
-        string[] TestsTaken { get; set; }
-        void takeTest(ITestpaper paper, string[] answers);
+        string[] _testsTaken { get; set; }
+        void TakeTest(ITestpaper paper, string[] answers);
     }
     public class Student : IStudent
     {
-        public string[] TestsTaken { get; set; }
-        private List<string> papersDone;
+        public string[] _testsTaken { get; set; }
+        private List<string> _papersDone;
 
         public Student()
         {
-            papersDone = new List<string>();
+            _papersDone = new List<string>();
         }
 
-        public void takeTest(ITestpaper paper, string[] answers)
+        public void TakeTest(ITestpaper paper, string[] answers)
         {
             var score = 0;
             for (var i = 0; i < answers.Length; i++)
             {
-                score += answers[i] == paper.markScheme[i] ? 1 : 0;
+                score += answers[i] == paper._markScheme[i] ? 1 : 0;
             }
-            papersDone.Add($"{paper.subject}: {(100 * score / answers.Length >= 80 ? "Passed!" : "Failed")} ({100 * score / answers.Length}%)");
+            _papersDone.Add($"{paper._subject}: {(100 * score / answers.Length >= 80 ? "Passed!" : "Failed")} ({100 * score / answers.Length}%)");
         }
 
-        public void testsTaken()
+        public void TestsTaken()
         {
-            Console.WriteLine(string.Join("\n", papersDone));
+            Console.WriteLine(string.Join("\n", _papersDone));
         }
     }
 }
