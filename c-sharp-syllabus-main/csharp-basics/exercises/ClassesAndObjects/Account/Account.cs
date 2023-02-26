@@ -1,33 +1,34 @@
 ﻿namespace Account
 {
-    class Account
+    public class Account
     {
         private string _name;
-        private double _money;
+        private decimal _balance;
 
-        public Account(string v1, double v2)
+        public Account(string name, decimal balance)
         {
-            
+            _name = name;
+            _balance = balance;
         }
 
-        public double Withdrawal(double i)
+        public void Withdrawal(decimal withdrawAmount)
         {
-            return i;
+            _balance -= withdrawAmount;
         }
 
-        public void Deposit(double i)
+        public void Deposit(decimal depositAmount)
         {
-            
+            _balance += depositAmount;
         }
 
-        public double Balance()
+        public decimal Balance()
         {
-            return _money;
+            return _balance;
         }
 
         public override string ToString()
         {
-            return $"{_name}: {_money}";
+            return $"{_name}: {_balance.ToString("C")}";
         }
 
         public string Name

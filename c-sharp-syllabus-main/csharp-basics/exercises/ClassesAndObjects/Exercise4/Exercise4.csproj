@@ -4,11 +4,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{90360AAE-A481-4D1C-A47B-BB3029D9D294}</ProjectGuid>
+        <ProjectGuid>{BFCE6D80-4D78-4E13-8140-39B196D57BCC}</ProjectGuid>
         <OutputType>Exe</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>Exercise3</RootNamespace>
-        <AssemblyName>Exercise3</AssemblyName>
+        <RootNamespace>Exercise4</RootNamespace>
+        <AssemblyName>Exercise4</AssemblyName>
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -39,8 +39,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="FuelGauge.cs" />
-        <Compile Include="Odometer.cs" />
+        <Compile Include="Movie.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>

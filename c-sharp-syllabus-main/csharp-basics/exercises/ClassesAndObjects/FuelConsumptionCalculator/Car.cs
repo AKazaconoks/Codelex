@@ -4,25 +4,25 @@ namespace FuelConsumptionCalculator
 {
     public class Car
     {
-        private double startKilometers;
-        private double endKilometers;
-        private double liters;
-        private string carName;
+        private double _startKilometers;
+        private double _endKilometers;
+        private double _liters;
+        private string _carName;
         
         public Car(double startKilometers, string carName)
         {
-            this.startKilometers = startKilometers;
-            this.carName = carName;
+            _startKilometers = startKilometers;
+            _carName = carName;
         }
 
         public double CalculateConsumption()
         {
-            return Math.Round((this.endKilometers - this.startKilometers) / this.liters, 2);
+            return Math.Round((_endKilometers - _startKilometers) / _liters, 2);
         }
 
-        public string getName()
+        public string GetName()
         {
-            return this.carName;
+            return _carName;
         }
 
         private double ConsumptionPer100Km()
@@ -37,8 +37,8 @@ namespace FuelConsumptionCalculator
 
         public void FillUp(int mileage, double liters)
         {
-            this.endKilometers = this.startKilometers + mileage;
-            this.liters = liters;
+            _endKilometers = _startKilometers + mileage;
+            _liters = liters;
         }
     }
 }

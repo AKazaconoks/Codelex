@@ -36,7 +36,7 @@ namespace FuelConsumptionCalculator
 
             foreach (var car in list)
             {
-                Console.WriteLine(car.getName() + " kilometers per liter are " + car.CalculateConsumption() + " car type:" + car.CarType());
+                Console.WriteLine(car.GetName() + " kilometers per liter are " + car.CalculateConsumption() + " car type:" + car.CarType());
             }
             
         }

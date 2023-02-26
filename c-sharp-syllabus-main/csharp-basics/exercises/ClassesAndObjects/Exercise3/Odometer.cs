@@ -4,34 +4,34 @@ namespace Exercise3
 {
     public class Odometer
     {
-        private int mileage;
-        private FuelGauge fg;
+        private int _mileage;
+        private FuelGauge _fg;
 
         public Odometer(FuelGauge fg)
         {
-            this.fg = fg;
+            _fg = fg;
         }
 
-        public void setMileage(int mileage)
+        public void SetMileage(int mileage)
         {
-            this.mileage = mileage;
+            _mileage = mileage;
         }
 
-        public int getMileage()
+        public int GetMileage()
         {
-            return this.mileage;
+            return _mileage;
         }
 
-        public void drive()
+        public void Drive()
         {
-            if (fg.getFuel() > 0) this.mileage = this.mileage == 999999 ? 0 : ++this.mileage;
+            if (_fg.getFuel() > 0) _mileage = _mileage == 999999 ? 0 : ++_mileage;
             else Console.WriteLine("Not enough fuel");
-            impactFuel();
+            ImpactFuel();
         }
 
-        public void impactFuel()
+        public void ImpactFuel()
         {
-            if(this.mileage % 10 == 0) fg.decreaseFuel();
+            if(_mileage % 10 == 0) _fg.decreaseFuel();
         }
     }
 }

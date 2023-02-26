@@ -2,31 +2,26 @@
 {
     public class FuelGauge
     {
-        private int fuel;
-
-        public FuelGauge()
-        {
-            
-        }
+        private int _fuel;
 
         public void setFuel(int fuel)
         {
-            this.fuel = fuel;
+            _fuel = fuel;
         }
 
         public int getFuel()
         {
-            return this.fuel;
+            return _fuel;
         }
 
         public void increaseFuel()
         {
-            this.fuel += fuel < 70 ? 1 : 0;
+            _fuel += _fuel < 70 ? 1 : 0;
         }
 
         public void decreaseFuel()
         {
-            this.fuel -= fuel > 0 ? 1 : 0;
+            _fuel -= _fuel > 0 ? 1 : 0;
         }
     }
 }
