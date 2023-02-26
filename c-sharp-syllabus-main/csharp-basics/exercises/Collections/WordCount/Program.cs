@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace WordCount
 {
@@ -10,7 +7,21 @@ namespace WordCount
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using StreamReader sr = new StreamReader(@"..\..\lear.txt");
+            var text = sr.ReadToEnd();
+            Console.WriteLine($"Lines = {line(text)}");
+            Console.WriteLine($"Words = {words(text)}");
+            Console.WriteLine($"Chars = {text.Length}");
+        }
+
+        static int words(string text)
+        {
+            return text.Split(' ').Length;
+        }
+
+        static int line(string text)
+        {
+            return text.Split('\n').Length;
         }
     }
 }
