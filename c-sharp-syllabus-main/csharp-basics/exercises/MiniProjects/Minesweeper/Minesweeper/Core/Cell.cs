@@ -30,7 +30,7 @@ namespace Minesweeper.Core
 
         public void SetupDesign()
         {
-            //this.BackColor = SystemColors.ButtonFace;
+            this.BackColor = SystemColors.ButtonFace;
             this.Location = new Point(XLoc * CellSize, YLoc * CellSize);
             this.Size = new Size(CellSize, CellSize);
             this.UseVisualStyleBackColor = false;
@@ -39,38 +39,71 @@ namespace Minesweeper.Core
 
         public void OnFlag()
         {
-
+            if (this.CellType == CellType.Flagged)
+            {
+                this.CellType = CellType.Regular;
+                this.Text = "";
+                this.BackColor = ColorTranslator.FromHtml("0xffffff");
+            }
+            else if (this.CellType == CellType.FlaggedMine)
+            {
+                this.CellType = CellType.Mine;
+                this.Text = "";
+                this.BackColor = ColorTranslator.FromHtml("0xffffff");
+            }
+            else if (this.CellType == CellType.Regular)
+            {
+                this.CellType = CellType.Flagged;
+                this.Text = "?";
+                this.ForeColor = ColorTranslator.FromHtml("0xffffff");;
+                this.BackColor = ColorTranslator.FromHtml("#A9A9A9");
+            }
+            else if (this.CellType == CellType.Mine)
+            {
+                this.CellType = CellType.FlaggedMine;
+                this.Text = "?";
+                this.ForeColor = ColorTranslator.FromHtml("0xffffff");;
+                this.BackColor = ColorTranslator.FromHtml("#A9A9A9");
+            }
         }
 
         public void OnClick(bool recursiveCall = false)
         {
-
+            this.CellState = CellState.Opened;
+            if (this.CellType == CellType.Mine)
+            {
+                this.Text = "*";
+                this.ForeColor = GetCellColour();
+                this.BackColor = ColorTranslator.FromHtml("#D3D3D3");
+            }
+            else
+            {
+                this.Text = this.NumMines == 0 ? "" : $"{this.NumMines}";
+                this.ForeColor = GetCellColour();
+                this.BackColor = ColorTranslator.FromHtml("#D3D3D3");
+            }
         }
-
-        /// <summary>
-        /// Return the colour code associated with the number of surrounding mines
-        /// </summary>
-        /// <returns></returns>
+        
         private Color GetCellColour()
         {
             switch (this.NumMines)
             {
                 case 1:
-                    return ColorTranslator.FromHtml("0x0000FE"); // 1
+                    return ColorTranslator.FromHtml("0x0000FE");
                 case 2:
-                    return ColorTranslator.FromHtml("0x186900"); // 2
+                    return ColorTranslator.FromHtml("0x186900");
                 case 3:
-                    return ColorTranslator.FromHtml("0xAE0107"); // 3
+                    return ColorTranslator.FromHtml("0xAE0107");
                 case 4:
-                    return ColorTranslator.FromHtml("0x000177"); // 4
+                    return ColorTranslator.FromHtml("0x000177");
                 case 5:
-                    return ColorTranslator.FromHtml("0x8D0107"); // 5
+                    return ColorTranslator.FromHtml("0x8D0107");
                 case 6:
-                    return ColorTranslator.FromHtml("0x007A7C"); // 6
+                    return ColorTranslator.FromHtml("0x007A7C");
                 case 7:
-                    return ColorTranslator.FromHtml("0x902E90"); // 7
+                    return ColorTranslator.FromHtml("0x902E90");
                 case 8:
-                    return ColorTranslator.FromHtml("0x000000"); // 8
+                    return ColorTranslator.FromHtml("0x000000");
                 default:
                     return ColorTranslator.FromHtml("0xffffff");
             }
