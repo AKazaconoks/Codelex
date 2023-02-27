@@ -16,6 +16,7 @@ namespace DecryptNumber
                 "!)(^&(#@",
                 "!)(#&%(*@#%"
             };
+            
             Dictionary<char, string> dict = new ()
             {
                 ['('] = "9",
@@ -29,6 +30,7 @@ namespace DecryptNumber
                 ['&'] = "7",
                 ['*'] = "8"
             };
+            
             foreach (var s in cryptedNumbers)
             {
                 var result = "";

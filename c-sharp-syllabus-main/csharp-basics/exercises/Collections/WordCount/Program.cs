@@ -9,17 +9,17 @@ namespace WordCount
         {
             using StreamReader sr = new StreamReader(@"..\..\lear.txt");
             var text = sr.ReadToEnd();
-            Console.WriteLine($"Lines = {line(text)}");
-            Console.WriteLine($"Words = {words(text)}");
+            Console.WriteLine($"Lines = {CountLines(text)}");
+            Console.WriteLine($"Words = {CountWords(text)}");
             Console.WriteLine($"Chars = {text.Length}");
         }
 
-        static int words(string text)
+        static int CountWords(string text)
         {
             return text.Split(' ').Length;
         }
 
-        static int line(string text)
+        static int CountLines(string text)
         {
             return text.Split('\n').Length;
         }

@@ -2,12 +2,12 @@
 var input = int.Parse(Console.ReadLine());
 isHappy(input);
 
-void isHappy(int number)
+void isHappy(double number)
 {
-    var sum = 0;
+    double sum = 0;
     foreach (var num in number.ToString())
     {
-        sum += (int) Math.Pow(double.Parse(num.ToString()), 2);
+        sum +=  Math.Pow(double.Parse(num.ToString()), 2);
     }
 
     if(sum == input) Console.WriteLine($"{input} is not a happy number");

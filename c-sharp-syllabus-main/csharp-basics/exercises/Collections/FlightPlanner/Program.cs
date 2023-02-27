@@ -21,14 +21,20 @@ namespace FlightPlanner
                 var list = new List<string>();
                 foreach (var a in readText)
                 {
-                    if(a.Contains(s.Split('>')[0])) list.Add(a.Split('>')[1].Trim());
+                    if (a.Contains(s.Split('>')[0]))
+                    {
+                        list.Add(a.Split('>')[1].Trim());
+                    }
                 }
 
                 try
                 {
                     dict.Add(s.Split('-')[0].Trim(), list);
                 }
-                catch { }
+                catch
+                {
+                    continue;
+                }
             }
 
             Start(dict);
@@ -50,16 +56,14 @@ namespace FlightPlanner
                     input = Console.ReadLine();
                     switch (input)
                     {
-                        case "#":
-                            Console.WriteLine("Goodbye!");
-                            return;
                         case "1":
                             Console.WriteLine($"Available cities: {string.Join(", ", dict.Select(x => x.Key))}");
                             Console.Write("Please enter a city to start: ");
                             var start = Console.ReadLine();
                             var next = start;
                             var travelPlan = new List<string>(){start};
-                            while (true)
+                            var isTripRounded = false;
+                            while (!isTripRounded)
                             {
                                 if (dict.TryGetValue(next, out var value))
                                 {
@@ -68,7 +72,11 @@ namespace FlightPlanner
                                     next = Console.ReadLine();
                                     travelPlan.Add(next);
                                 }
-                                if (start == next) break;
+
+                                if (start == next)
+                                {
+                                    isTripRounded = true;
+                                }
                             }
 
                             Console.WriteLine($"Thank you! Here is your round trip plan: {string.Join(" -> ", travelPlan)}");

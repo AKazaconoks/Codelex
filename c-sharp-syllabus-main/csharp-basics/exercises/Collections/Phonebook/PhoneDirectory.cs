@@ -18,7 +18,7 @@ namespace PhoneBook
             Console.WriteLine(string.Join("\n", _data.Select(x => $"{x.Key} {x.Value}")));
         }
 
-        public int Find(string name) 
+        public int GetIndex(string name) 
         {
             return new List<string>(_data.Keys).IndexOf(name);
         }
