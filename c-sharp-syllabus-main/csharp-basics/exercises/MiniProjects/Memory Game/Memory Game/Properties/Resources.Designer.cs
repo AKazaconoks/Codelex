@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace T.Properties
+namespace Memory_Game.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -45,7 +45,7 @@ namespace T.Properties
                 if ((resourceMan == null))
                 {
                     global::System.Resources.ResourceManager temp =
-                        new global::System.Resources.ResourceManager("T.Properties.Resources",
+                        new global::System.Resources.ResourceManager("Memory_Game.Properties.Resources",
                             typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
