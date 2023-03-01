@@ -45,16 +45,16 @@ namespace FlightPlanner
             Console.WriteLine("What would you like to do: ");
             Console.WriteLine("To display list of the cities press 1");
             Console.WriteLine("To exit program press #");
-            var input = Console.ReadLine();
-            switch (input)
+            var firstInput = Console.ReadLine();
+            switch (firstInput)
             {
                 case "#":
                     Console.WriteLine("Goodbye!");
                     return;
                 case "1":
                     Console.WriteLine("To select a city from which you would like to start press 1");
-                    input = Console.ReadLine();
-                    switch (input)
+                    var secondInput = Console.ReadLine();
+                    switch (secondInput)
                     {
                         case "1":
                             Console.WriteLine($"Available cities: {string.Join(", ", dict.Select(x => x.Key))}");
