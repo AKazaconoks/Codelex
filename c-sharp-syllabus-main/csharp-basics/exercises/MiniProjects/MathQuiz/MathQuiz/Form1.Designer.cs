@@ -97,7 +97,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "+";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // plusRightLabel
             // 
@@ -126,6 +125,8 @@
             this.sum.Name = "sum";
             this.sum.Size = new System.Drawing.Size(100, 62);
             this.sum.TabIndex = 1;
+            this.sum.ValueChanged += new System.EventHandler(this.sum_ValueChanged);
+            this.sum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // diff
             // 
@@ -134,6 +135,7 @@
             this.diff.Name = "diff";
             this.diff.Size = new System.Drawing.Size(100, 62);
             this.diff.TabIndex = 2;
+            this.diff.ValueChanged += new System.EventHandler(this.diff_ValueChanged);
             // 
             // label4
             // 
@@ -182,6 +184,8 @@
             this.mult.Name = "mult";
             this.mult.Size = new System.Drawing.Size(100, 62);
             this.mult.TabIndex = 3;
+            this.mult.ValueChanged += new System.EventHandler(this.mul_ValueChanged);
+            this.mult.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label8
             // 
@@ -230,6 +234,8 @@
             this.division.Name = "division";
             this.division.Size = new System.Drawing.Size(100, 62);
             this.division.TabIndex = 4;
+            this.division.ValueChanged += new System.EventHandler(this.div_ValueChanged);
+            this.division.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label12
             // 
@@ -284,7 +290,6 @@
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 1000D;
             this.timer1.SynchronizingObject = this;
             this.timer1.Elapsed += new System.Timers.ElapsedEventHandler(this.timer1_Elapsed);
@@ -293,7 +298,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(790, 545);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.division);
@@ -319,9 +323,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.timeLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Location = new System.Drawing.Point(15, 15);
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Math Quiz";
             ((System.ComponentModel.ISupportInitialize)(this.sum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mult)).EndInit();

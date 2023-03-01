@@ -71,10 +71,6 @@ namespace MathQuiz
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-        }
-
         private void startButton_Click(object sender, EventArgs e)
         {
             StartTheQuiz();
@@ -92,11 +88,16 @@ namespace MathQuiz
             }
             else if (timeLeft > 0)
             {
+                if (timeLeft < 6)
+                {
+                    timeLabel.BackColor = Color.Red;
+                }
                 timeLeft = timeLeft - 1;
                 timeLabel.Text = timeLeft + " seconds";
             }
             else if(!startButton.Enabled)
             {
+                timeLabel.BackColor = Color.White;
                 timer1.Stop();
                 timeLabel.Text = "Time's up!";
                 MessageBox.Show("You didn't finish in time.", "Sorry!");
@@ -105,6 +106,53 @@ namespace MathQuiz
                 mult.Value = _multiplicand * _multiplier;
                 division.Value = _dividend / _divisor;
                 startButton.Enabled = true;
+            }
+        }
+
+        private void answer_Enter(object sender, EventArgs e)
+        {
+            var answerBox = sender as NumericUpDown;
+
+            if (answerBox != null)
+            {
+                int lengthOfAnswer = answerBox.Value.ToString().Length;
+                answerBox.Select(0, lengthOfAnswer);
+            }
+        }
+
+        private void sum_ValueChanged(object sender, EventArgs e)
+        {
+            var answerBox = sender as NumericUpDown;
+            if (answerBox.Value == sum.Value)
+            {
+                System.Media.SystemSounds.Hand.Play();
+            }
+        }
+        
+        private void diff_ValueChanged(object sender, EventArgs e)
+        {
+            var answerBox = sender as NumericUpDown;
+            if (answerBox.Value == diff.Value)
+            {
+                System.Media.SystemSounds.Hand.Play();
+            }
+        }
+        
+        private void mul_ValueChanged(object sender, EventArgs e)
+        {
+            var answerBox = sender as NumericUpDown;
+            if (answerBox.Value == mult.Value)
+            {
+                System.Media.SystemSounds.Hand.Play();
+            }
+        }
+        
+        private void div_ValueChanged(object sender, EventArgs e)
+        {
+            var answerBox = sender as NumericUpDown;
+            if (answerBox.Value == division.Value)
+            {
+                System.Media.SystemSounds.Hand.Play();
             }
         }
     }
