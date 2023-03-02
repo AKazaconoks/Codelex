@@ -89,7 +89,7 @@ namespace Minesweeper.Core
             cell.NumMines = counter;
         }
 
-        private void Cell_MouseClick(object sender, MouseEventArgs e)
+        public void Cell_MouseClick(object sender, MouseEventArgs e)
         {
             var cell = (Cell) sender;
 

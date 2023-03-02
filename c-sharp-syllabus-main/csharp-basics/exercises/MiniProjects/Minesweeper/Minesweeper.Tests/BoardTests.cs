@@ -1,5 +1,7 @@
 ﻿
 
+using System.Threading;
+using System.Windows.Forms;
 using FluentAssertions;
 using Minesweeper.Core;
 using NUnit.Framework;
@@ -13,8 +15,9 @@ namespace Minesweeper.Tests
         private static Minesweeper minesweeper = new Minesweeper();
         private static int width = 9;
         private static int height = 9;
-        private static int mineCount = 9;
+        private static int mineCount = 10;
         private Board board = new Board(minesweeper, width, height, mineCount);
+
         [Test]
         public void TestGameBoard()
         {
@@ -32,7 +35,8 @@ namespace Minesweeper.Tests
         {
             board.SetupBoard();
             var cell = board.Cells[0, 0];
-            cell.OnClick();
+            var e = new MouseEventArgs(MouseButtons.Left, 1, cell.XLoc*50, cell.YLoc*50, 0);
+            board.Cell_MouseClick(cell, e);
             Assert.IsTrue(cell.CellState == CellState.Opened);
         }
 
@@ -42,13 +46,14 @@ namespace Minesweeper.Tests
             board.SetupBoard();
             var cellMine = board.Cells[0, 0];
             cellMine.CellType = CellType.Mine;
-            cellMine.OnClick();
+            var e = new MouseEventArgs(MouseButtons.Left, 1, cellMine.XLoc*50, cellMine.YLoc*50, 0);
+            board.Cell_MouseClick(cellMine, e);
             Assert.IsTrue(board.LoseCondition());
             foreach (var cell in board.Cells)
             {
                 if (cell.CellType == CellType.Mine)
                 {
-                    Assert.AreEqual(CellState.Opened, cell.CellState);
+                    Assert.IsTrue(cell.CellState == CellState.Opened);
                 }
             }
         }
@@ -61,7 +66,8 @@ namespace Minesweeper.Tests
             {
                 if (cell.CellType != CellType.Mine)
                 {
-                    cell.OnClick();
+                    var e = new MouseEventArgs(MouseButtons.Left, 1, cell.XLoc*50, cell.YLoc*50, 0);
+                    board.Cell_MouseClick(cell, e);
                 }
             }
             Assert.IsTrue(board.WinCondition());
@@ -74,7 +80,8 @@ namespace Minesweeper.Tests
             var emptyCell = board.Cells[5, 5];
             emptyCell.NumMines = 0;
             emptyCell.CellType = CellType.Regular;
-            emptyCell.OnClick();
+            var e = new MouseEventArgs(MouseButtons.Left, 1, emptyCell.XLoc*50, emptyCell.YLoc*50, 0);
+            board.Cell_MouseClick(emptyCell, e);
             for (var i = 4; i < 7; i++)
             {
                 for (var j = 4; j < 7; j++)
@@ -82,11 +89,11 @@ namespace Minesweeper.Tests
                     var neighbourCell = board.Cells[i, j];
                     if (neighbourCell.CellType != CellType.Mine)
                     {
-                        Assert.AreEqual(CellState.Opened, neighbourCell.CellState);
+                        Assert.IsTrue(neighbourCell.CellState == CellState.Opened);
                     }
-                    else if(board.Cells[i, j].CellType == CellType.Mine)
+                    else if(neighbourCell.CellType == CellType.Mine)
                     {
-                        Assert.AreEqual(CellState.Closed, neighbourCell.CellState);
+                        Assert.IsTrue(CellState.Closed == neighbourCell.CellState);
                     }
                 }
             }
