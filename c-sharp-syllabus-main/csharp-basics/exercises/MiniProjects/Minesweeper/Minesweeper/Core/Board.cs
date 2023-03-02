@@ -124,6 +124,13 @@ namespace Minesweeper.Core
 
             if (LoseCondition())
             {
+                foreach (var cell in Cells)
+                {
+                    if (cell.CellType == CellType.Mine)
+                    {
+                        cell.OnClick();
+                    }
+                }
                 GameEndMessage("You lost :(");
             }
         }
@@ -171,7 +178,8 @@ namespace Minesweeper.Core
                 }
             }
         }
-        private bool WinCondition()
+
+        public bool WinCondition()
         {
             foreach (var cell in Cells)
             {
@@ -185,7 +193,7 @@ namespace Minesweeper.Core
             return true;
         }
 
-        private bool LoseCondition()
+        public bool LoseCondition()
         {
             foreach (var cell in Cells)
             {
