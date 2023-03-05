@@ -7,6 +7,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Table;
 using Newtonsoft.Json;
+using ITableEntity = Microsoft.Azure.Cosmos.Table.ITableEntity;
 
 namespace Atea
 {
