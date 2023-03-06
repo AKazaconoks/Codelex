@@ -6,7 +6,9 @@ namespace MakeSounds
     {
         private static void Main(string[] args)
         {
-            
+            new Firework().PlaySound();
+            new Parrot().PlaySound();
+            new Radio().PlaySound();
         }
     }
 }
