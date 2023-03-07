@@ -14,5 +14,15 @@ namespace VendingMachine
         public Money Price { get; set; }
         ///<summary>Gets or sets the product name.</summary>
         public string Name { get; set; }
+
+        public int ProductNumber { get; set; }
+
+        public Product(int available, Money price, string name, int productNumber)
+        {
+            Available = available;
+            Price = price;
+            Name = name;
+            ProductNumber = productNumber;
+        }
     }
 }
