@@ -71,6 +71,7 @@ namespace Minesweeper.Core
             {
                 return;
             }
+            
             for (var i = Math.Max(0, cell.YLoc - 1); i <= Math.Min(Height - 1, cell.YLoc + 1); i++)
             {
                 for (var j = Math.Max(0, cell.XLoc - 1); j <= Math.Min(Width - 1, cell.XLoc + 1); j++)
@@ -117,12 +118,12 @@ namespace Minesweeper.Core
 
         public void GameEnd()
         {
-            if (WinCondition())
+            if (IsWinCondition())
             {
                 GameEndMessage("You won!");
             }
 
-            if (LoseCondition())
+            if (IsLoseCondition())
             {
                 foreach (var cell in Cells)
                 {
@@ -179,7 +180,7 @@ namespace Minesweeper.Core
             }
         }
 
-        public bool WinCondition()
+        public bool IsWinCondition()
         {
             foreach (var cell in Cells)
             {
@@ -193,7 +194,7 @@ namespace Minesweeper.Core
             return true;
         }
 
-        public bool LoseCondition()
+        public bool IsLoseCondition()
         {
             foreach (var cell in Cells)
             {

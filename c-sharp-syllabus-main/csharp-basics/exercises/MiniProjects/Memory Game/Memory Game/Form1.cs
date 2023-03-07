@@ -13,14 +13,14 @@ namespace Memory_Game
 {
     public partial class Form1 : Form
     {
-        private Random random = new Random();
-        private List<string> icons = new List<string>() { 
+        private Random _random = new Random();
+        private List<string> _icons = new List<string>() { 
             "!", "!", "N", "N", ",", ",", "k", "k",
             "b", "b", "v", "v", "w", "w", "z", "z"
         };
 
-        private Label firstClicked = null;
-        private Label secondClicked = null;
+        private Label _firstClicked = null;
+        private Label _secondClicked = null;
         
         public Form1()
         {
@@ -35,10 +35,10 @@ namespace Memory_Game
                 Label iconLabel = control as Label;
                 if (iconLabel != null)
                 {
-                    int randomNumber = random.Next(icons.Count);
-                    iconLabel.Text = icons[randomNumber];
+                    int randomNumber = _random.Next(_icons.Count);
+                    iconLabel.Text = _icons[randomNumber];
                     iconLabel.ForeColor = iconLabel.BackColor;
-                    icons.RemoveAt(randomNumber);
+                    _icons.RemoveAt(randomNumber);
                 }
             }
         }
@@ -77,22 +77,22 @@ namespace Memory_Game
                     return;
                 }
 
-                if (firstClicked == null)
+                if (_firstClicked == null)
                 {
-                    firstClicked = clickedLabel;
-                    firstClicked.ForeColor = Color.Black;
+                    _firstClicked = clickedLabel;
+                    _firstClicked.ForeColor = Color.Black;
                     return; 
                 }
                 
-                secondClicked = clickedLabel;
-                secondClicked.ForeColor = Color.Black;
+                _secondClicked = clickedLabel;
+                _secondClicked.ForeColor = Color.Black;
                 
                 CheckForWinner();
 
-                if (firstClicked.Text == secondClicked.Text)
+                if (_firstClicked.Text == _secondClicked.Text)
                 {
-                    firstClicked = null;
-                    secondClicked = null;
+                    _firstClicked = null;
+                    _secondClicked = null;
                     return;
                 }
                 
@@ -105,12 +105,15 @@ namespace Memory_Game
             timer1.Stop();
             try
             {
-                firstClicked.ForeColor = firstClicked.BackColor;
-                secondClicked.ForeColor = secondClicked.BackColor;
-                firstClicked = null;
-                secondClicked = null;
+                _firstClicked.ForeColor = _firstClicked.BackColor;
+                _secondClicked.ForeColor = _secondClicked.BackColor;
+                _firstClicked = null;
+                _secondClicked = null;
             }
-            catch{}
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

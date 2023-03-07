@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using System.Media;
 
 namespace MathQuiz
 {
@@ -31,19 +26,19 @@ namespace MathQuiz
             plusLeftLabel.Text = _addEnd1.ToString();
             plusRightLabel.Text = _addEnd2.ToString();
             sum.Value = 0;
-            
+
             _minuend = random.Next(1, 101);
             _subtrahend = random.Next(1, _minuend);
             minusLeftLabel.Text = _minuend.ToString();
             minusRigthLabel.Text = _subtrahend.ToString();
             diff.Value = 0;
-            
+
             _multiplicand = random.Next(2, 11);
             _multiplier = random.Next(2, 11);
             multiplyLeftLabel.Text = _multiplicand.ToString();
             multiplyRightLabel.Text = _multiplier.ToString();
             mult.Value = 0;
-            
+
             _divisor = random.Next(2, 11);
             int temporaryQuotient = random.Next(2, 11);
             _dividend = _divisor * temporaryQuotient;
@@ -55,7 +50,7 @@ namespace MathQuiz
             timeLabel.Text = "30 seconds";
             timer1.Start();
         }
-        
+
         private bool CheckTheAnswer()
         {
             if ((_addEnd1 + _addEnd2 == sum.Value)
@@ -65,19 +60,20 @@ namespace MathQuiz
                 return true;
             else
                 return false;
-        } 
+        }
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void startButton_Click(object sender, EventArgs e)
+        private void StartButtonClick(object sender, EventArgs e)
         {
             StartTheQuiz();
             startButton.Enabled = false;
         }
 
-        private void timer1_Elapsed(object sender, ElapsedEventArgs e)
+        private void Timer1Elapsed(object sender, ElapsedEventArgs e)
         {
             if (CheckTheAnswer() && !startButton.Enabled)
             {
@@ -92,10 +88,11 @@ namespace MathQuiz
                 {
                     timeLabel.BackColor = Color.Red;
                 }
+
                 timeLeft = timeLeft - 1;
                 timeLabel.Text = timeLeft + " seconds";
             }
-            else if(!startButton.Enabled)
+            else if (!startButton.Enabled)
             {
                 timeLabel.BackColor = Color.White;
                 timer1.Stop();
@@ -109,7 +106,7 @@ namespace MathQuiz
             }
         }
 
-        private void answer_Enter(object sender, EventArgs e)
+        private void AnswerEnter(object sender, EventArgs e)
         {
             var answerBox = sender as NumericUpDown;
 
@@ -120,39 +117,39 @@ namespace MathQuiz
             }
         }
 
-        private void sum_ValueChanged(object sender, EventArgs e)
+        private void SumValueChanged(object sender, EventArgs e)
         {
             var answerBox = sender as NumericUpDown;
             if (answerBox.Value == sum.Value)
             {
-                System.Media.SystemSounds.Hand.Play();
+                SystemSounds.Hand.Play();
             }
         }
-        
-        private void diff_ValueChanged(object sender, EventArgs e)
+
+        private void DiffValueChanged(object sender, EventArgs e)
         {
             var answerBox = sender as NumericUpDown;
             if (answerBox.Value == diff.Value)
             {
-                System.Media.SystemSounds.Hand.Play();
+                SystemSounds.Hand.Play();
             }
         }
-        
-        private void mul_ValueChanged(object sender, EventArgs e)
+
+        private void MulValueChanged(object sender, EventArgs e)
         {
             var answerBox = sender as NumericUpDown;
             if (answerBox.Value == mult.Value)
             {
-                System.Media.SystemSounds.Hand.Play();
+                SystemSounds.Hand.Play();
             }
         }
-        
-        private void div_ValueChanged(object sender, EventArgs e)
+
+        private void DivValueChanged(object sender, EventArgs e)
         {
             var answerBox = sender as NumericUpDown;
             if (answerBox.Value == division.Value)
             {
-                System.Media.SystemSounds.Hand.Play();
+                SystemSounds.Hand.Play();
             }
         }
     }
