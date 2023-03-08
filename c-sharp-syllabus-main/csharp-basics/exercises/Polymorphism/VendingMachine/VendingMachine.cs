@@ -32,7 +32,7 @@ namespace VendingMachine
                 return Amount;
             }
 
-            throw new ArgumentException("Incorrect coin type");
+            throw new VendingMachineExceptions("Incorrect coin type");
         }
 
         public Money ReturnMoney()
@@ -53,7 +53,7 @@ namespace VendingMachine
                 return true;
             }
 
-            throw new ArgumentException("Vending machine is full");
+            throw new VendingMachineExceptions("Vending machine is full");
         }
 
         public bool UpdateProduct(int productNumber, string name, Money? price, int amount)
@@ -72,7 +72,7 @@ namespace VendingMachine
             }
             catch
             {
-                throw new ArgumentException("Unable to find this product");
+                throw new VendingMachineExceptions("Unable to find this product");
             }
         }
 
@@ -81,7 +81,7 @@ namespace VendingMachine
             var product = Array.Find(Products, a => a.Name == name);
             if (product.Available == 0)
             {
-                throw new ArgumentException("Product is not available");
+                throw new VendingMachineExceptions("Product is not available");
             }
             if (_lastMoneyInput.Euros > product.Price.Euros)
             {
@@ -99,7 +99,7 @@ namespace VendingMachine
                 Products[product.ProductNumber] = product;
                 return product;
             }
-            throw new ArgumentException("Not enough money");
+            throw new VendingMachineExceptions("Not enough money");
         }
     }
 }
