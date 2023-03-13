@@ -1,0 +1,43 @@
+﻿@model LatvijasPasts.Models.WorkplaceSkillDataModel
+
+@{
+    ViewData["Title"] = "WorkplaceSkillCreation";
+}
+
+<h1>WorkplaceSkillCreation</h1>
+
+<h4>WorkplaceSkillDataModel</h4>
+<hr />
+
+@Html.AntiForgeryToken()
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="WorkplaceSkillCreation">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SkillDescription" class="control-label"></label>
+                <input asp-for="SkillDescription" class="form-control" />
+                <span asp-validation-for="SkillDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SkillType" class="control-label"></label>
+                <input asp-for="SkillType" class="form-control" />
+                <span asp-validation-for="SkillType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="button" value="add">Add</button>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="button" value="addWorkplace">Add workplace</button>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="button" value="continue">Continue</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,54 @@
+﻿@model LatvijasPasts.Models.EducationDataModel
+
+@{
+    ViewData["Title"] = "EducationCreation";
+}
+
+<h1>EducationCreation</h1>
+
+<h4>EducationDataModel</h4>
+<hr />
+@Html.AntiForgeryToken()
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EducationCreation">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EducationName" class="control-label"></label>
+                <input asp-for="EducationName" class="form-control"/>
+                <span asp-validation-for="EducationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EducationFaculty" class="control-label"></label>
+                <input asp-for="EducationFaculty" class="form-control"/>
+                <span asp-validation-for="EducationFaculty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EducationDirection" class="control-label"></label>
+                <input asp-for="EducationDirection" class="form-control"/>
+                <span asp-validation-for="EducationDirection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EducationLevel" class="control-label"></label>
+                <input asp-for="EducationLevel" class="form-control"/>
+                <span asp-validation-for="EducationLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EducationStatus" class="control-label"></label>
+                <input asp-for="EducationStatus" class="form-control"/>
+                <span asp-validation-for="EducationStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="button" value="add">Add</button>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="button" value="continue">Continue</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
