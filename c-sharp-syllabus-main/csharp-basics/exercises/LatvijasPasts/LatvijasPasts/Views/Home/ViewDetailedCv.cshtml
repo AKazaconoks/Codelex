@@ -1,0 +1,49 @@
+﻿@model LatvijasPasts.Models.DetailedCvViewModel
+
+@{
+    ViewData["Title"] = "ViewDetailedCv";
+}
+
+<h1>ViewDetailedCv</h1>
+
+<div>
+    <h1>@Model.PrimaryData.FirstName @Model.PrimaryData.LastName's CV</h1>
+
+    <h2>Contact Information</h2>
+    <p>Email: @Model.PrimaryData.EmailAddress</p>
+    <p>Phone: @Model.PrimaryData.PhoneNumber</p>
+
+    <h2>Education</h2>
+    <ul>
+        @foreach (var education in Model.EducationData)
+        {
+            <li>@education.EducationName, @education.EducationLevel, @education.EducationDirection, @education.EducationFaculty</li>
+        }
+    </ul>
+
+    <h2>Work Experience</h2>
+    <ul>
+        @foreach (var workplace in Model.WorkplaceData)
+        {
+            <li>@workplace.WorkplaceName, @workplace.WorkplaceTitle, @workplace.WorkplaceTenure</li>
+            <ul>
+                @foreach (var skill in Model.WorkplaceSkillData.Where(skill => skill.WorkplaceId == workplace.Id))
+                {
+                    <li>@skill.SkillType: @skill.SkillDescription</li>
+                }
+            </ul>
+        }
+    </ul>
+
+    <h2>Languages</h2>
+    <ul>
+        @foreach (var language in Model.LanguageData)
+        {
+            <li>@language.Language</li>
+        }
+    </ul>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PrimaryData.Id })
+    <a asp-action="ViewCvs">Back to List</a>
+</div>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<LatvijasPasts.Models.PrimaryDataModel>
+
+@{
+    ViewData["Title"] = "ViewCvs";
+}
+
+<h1>ViewCvs</h1>
+
+<p>
+    <a asp-action="CvCreation">Izveidot jauno ierakstu</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.ActionLink("Izlabot", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Apskatīties", "ViewDetailedCv", new { id = item.Id }) |
+                @Html.ActionLink("Izdzēst", "DeleteCv", new { id = item.Id })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
