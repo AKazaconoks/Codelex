@@ -126,7 +126,7 @@
             this.sum.Size = new System.Drawing.Size(100, 62);
             this.sum.TabIndex = 1;
             this.sum.ValueChanged += new System.EventHandler(this.SumValueChanged);
-            this.sum.Enter += new System.EventHandler(this.AnswerEnter);
+            this.sum.Enter += new System.EventHandler(this.EnterTheAnswer);
             // 
             // diff
             // 
@@ -135,7 +135,7 @@
             this.diff.Name = "diff";
             this.diff.Size = new System.Drawing.Size(100, 62);
             this.diff.TabIndex = 2;
-            this.diff.ValueChanged += new System.EventHandler(this.DiffValueChanged);
+            this.diff.ValueChanged += new System.EventHandler(this.DifferenceValueChanged);
             // 
             // label4
             // 
@@ -184,8 +184,8 @@
             this.mult.Name = "mult";
             this.mult.Size = new System.Drawing.Size(100, 62);
             this.mult.TabIndex = 3;
-            this.mult.ValueChanged += new System.EventHandler(this.MulValueChanged);
-            this.mult.Enter += new System.EventHandler(this.AnswerEnter);
+            this.mult.ValueChanged += new System.EventHandler(this.MultiplyValueChanged);
+            this.mult.Enter += new System.EventHandler(this.EnterTheAnswer);
             // 
             // label8
             // 
@@ -234,8 +234,8 @@
             this.division.Name = "division";
             this.division.Size = new System.Drawing.Size(100, 62);
             this.division.TabIndex = 4;
-            this.division.ValueChanged += new System.EventHandler(this.DivValueChanged);
-            this.division.Enter += new System.EventHandler(this.AnswerEnter);
+            this.division.ValueChanged += new System.EventHandler(this.DivisionValueChanged);
+            this.division.Enter += new System.EventHandler(this.EnterTheAnswer);
             // 
             // label12
             // 

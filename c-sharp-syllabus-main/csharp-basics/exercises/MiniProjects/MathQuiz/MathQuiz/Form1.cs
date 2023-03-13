@@ -53,13 +53,10 @@ namespace MathQuiz
 
         private bool CheckTheAnswer()
         {
-            if ((_addEnd1 + _addEnd2 == sum.Value)
-                && (_minuend - _subtrahend == diff.Value)
-                && (_multiplicand * _multiplier == mult.Value)
-                && (_dividend / _divisor == division.Value))
-                return true;
-            else
-                return false;
+            return (_addEnd1 + _addEnd2 == sum.Value)
+                   && (_minuend - _subtrahend == diff.Value)
+                   && (_multiplicand * _multiplier == mult.Value)
+                   && (_dividend / _divisor == division.Value);
         }
 
         public Form1()
@@ -106,13 +103,13 @@ namespace MathQuiz
             }
         }
 
-        private void AnswerEnter(object sender, EventArgs e)
+        private void EnterTheAnswer(object sender, EventArgs e)
         {
             var answerBox = sender as NumericUpDown;
 
             if (answerBox != null)
             {
-                int lengthOfAnswer = answerBox.Value.ToString().Length;
+                var lengthOfAnswer = answerBox.Value.ToString().Length;
                 answerBox.Select(0, lengthOfAnswer);
             }
         }
@@ -126,7 +123,7 @@ namespace MathQuiz
             }
         }
 
-        private void DiffValueChanged(object sender, EventArgs e)
+        private void DifferenceValueChanged(object sender, EventArgs e)
         {
             var answerBox = sender as NumericUpDown;
             if (answerBox.Value == diff.Value)
@@ -135,7 +132,7 @@ namespace MathQuiz
             }
         }
 
-        private void MulValueChanged(object sender, EventArgs e)
+        private void MultiplyValueChanged(object sender, EventArgs e)
         {
             var answerBox = sender as NumericUpDown;
             if (answerBox.Value == mult.Value)
@@ -144,7 +141,7 @@ namespace MathQuiz
             }
         }
 
-        private void DivValueChanged(object sender, EventArgs e)
+        private void DivisionValueChanged(object sender, EventArgs e)
         {
             var answerBox = sender as NumericUpDown;
             if (answerBox.Value == division.Value)
