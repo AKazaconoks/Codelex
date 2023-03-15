@@ -3,16 +3,16 @@
 public class Employee
 {
     public int Id { get; set; }
-    private string _fullName { get; set; }
-    private decimal _hourlySalary { get; set; }
+    public string FullName { get; set; }
+    public decimal HourlySalary { get; set; }
     private DateTime _contractStartDate;
     private DateTime _contractEndDate;
     private Dictionary<DateTime, int> _reportedHours;
 
     public Employee(string fullName, decimal hourlySalary)
     {
-        _fullName = fullName;
-        _hourlySalary = hourlySalary;
+        FullName = fullName;
+        HourlySalary = hourlySalary;
         Id = Company.GetId();
         _contractStartDate = DateTime.MinValue;
         _contractEndDate = DateTime.MaxValue;
@@ -90,7 +90,7 @@ public class Employee
 
     public decimal GetMonthlySalary(int year, int month)
     {
-        return (decimal)(_hourlySalary * GetReportedHoursForPeriodAsHours(new DateTime(year, month, 1),
+        return (decimal)(HourlySalary * GetReportedHoursForPeriodAsHours(new DateTime(year, month, 1),
             new DateTime(year, month, DateTime.DaysInMonth(year, month))));
     }
 }
