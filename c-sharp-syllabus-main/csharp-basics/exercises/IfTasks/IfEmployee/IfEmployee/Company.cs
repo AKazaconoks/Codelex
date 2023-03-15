@@ -11,7 +11,7 @@ public class Company : ICompany
 
     private List<Employee> _employees;
 
-    private static int _idCounter { get; set; }
+    private static int _idCounter;
     private List<Employee> _terminatedEmployees;
 
     public Company(string name)

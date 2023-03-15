@@ -2,28 +2,28 @@
 
 public class EmployeeMonthlyReport
 {
-    public int EmployeeId { get; set; }
+    private int _employeeId { get; set; }
 
-    public int Year { get; set; }
+    private int _year { get; set; }
 
-    public int Month { get; set; }
+    private int _month { get; set; }
 
-    public decimal Salary { get; set; }
+    private decimal _salary { get; set; }
 
-    public decimal HoursWorked { get; set; }
+    private decimal _hoursWorked { get; set; }
 
     public EmployeeMonthlyReport(int employeeId, int year, int month, decimal salary, decimal hoursWorked)
     {
-        EmployeeId = employeeId;
-        Year = year;
-        Month = month;
-        Salary = salary;
-        HoursWorked = hoursWorked;
+        _employeeId = employeeId;
+        _year = year;
+        _month = month;
+        _salary = salary;
+        _hoursWorked = hoursWorked;
     }
 
     public override string ToString()
     {
         return
-            $"Employee monthly report for {EmployeeId} for date: {Month}.{Year}. Worked hours: {HoursWorked}, salary: {Salary}";
+            $"Employee monthly report for {_employeeId} for date: {_month}.{_year}. Worked hours: {_hoursWorked}, salary: {_salary}";
     }
 }

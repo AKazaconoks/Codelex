@@ -25,7 +25,7 @@ namespace IfEmployeeTest
         }
 
         [Test]
-        public void TestRecruiting_BigAmountOfEmployees_ShouldContainAll()
+        public void Add_BigAmountOfEmployees_ReturnsSameNumber()
         {
             for (int i = 0; i < 100000; i++)
             {
@@ -36,7 +36,7 @@ namespace IfEmployeeTest
         }
 
         [Test]
-        public void TestReturn_Employee_ReturnedEmployeeShouldHaveSameData()
+        public void Readd_Employee_ReturnedEmployeeShouldHaveSameData()
         {
             var name = _employee.FullName;
             var id = _employee.Id;
@@ -48,18 +48,18 @@ namespace IfEmployeeTest
         }
 
         [Test]
-        public void TestReportHours_ReportingHours_ShouldMemorizeReportedHours()
+        public void Add_ReportingHours_ReturnsReportedHoursAsString()
         {
             _company.AddEmployee(_employee, DateTime.Now);
-            DateTime date = DateTime.Now;
-            int hours = 2;
-            int minutes = 45;
+            var date = DateTime.Now;
+            var hours = 2;
+            var minutes = 45;
             _company.ReportHours(_employee.Id, date, hours, minutes);
             Assert.True(_employee.GetReportedHoursAsString(date) == $"{date} worked hours: 2:45");
         }
 
         [Test]
-        public void TestGetReportedHours_ReportingHours_ShouldReturnDecimalAmount()
+        public void Add_ReportingHours_ReturnsReportedHoursAsHours()
         {
             _company.AddEmployee(_employee, DateTime.Now);
             for (var i = 8; i < 32; i++)
@@ -71,7 +71,7 @@ namespace IfEmployeeTest
         }
 
         [Test]
-        public void TestCalculateSalary_ReportingHours_ShouldReturnCorrectSalary()
+        public void Add_ReportingHours_ReturnsCorrectSalary()
         {
             _company.AddEmployee(_employee, DateTime.Now);
             for (var i = 8; i < 32; i++)
@@ -83,7 +83,7 @@ namespace IfEmployeeTest
         }
 
         [Test]
-        public void TestMonthlyReports_ReportingHoursForEmployees_ShouldReturnListOfData()
+        public void Create_MonthlyReport_ReturnsListOfMonthlyReportForEach()
         {
             var resultAsShouldList = new List<EmployeeMonthlyReport>();
             for (var i = 0; i < 50; i++)
