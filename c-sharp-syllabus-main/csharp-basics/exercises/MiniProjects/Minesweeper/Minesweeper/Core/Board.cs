@@ -26,21 +26,71 @@ namespace Minesweeper.Core
 
         public void SetupBoard()
         {
-            var c = new Cell
+            for (var i = 0; i < Height; i++)
             {
-                CellState = CellState.Closed,
-                CellType = CellType.Regular,
-                CellSize = 50,
-                Board = this
-            };
-            c.SetupDesign();
-            c.MouseDown += Cell_MouseClick;
+                for (var j = 0; j < Width; j++)
+                {
+                    var c = new Cell
+                    {
+                        CellState = CellState.Closed,
+                        CellType = CellType.Regular,
+                        CellSize = 50,
+                        Board = this
+                    };
+                    c.XLoc = j;
+                    c.YLoc = i;
+                    c.SetupDesign();
+                    c.MouseDown += Cell_MouseClick;
+                    this.Cells[i, j] = c;
+                    this.Minesweeper.Controls.Add(c);
+                }
+            }
 
-            this.Cells[0, 0] = c;
-            this.Minesweeper.Controls.Add(c);
+            var addedMinesCount = 0;
+            var random = new Random();
+            while (addedMinesCount < this.NumMines)
+            {
+                var i = random.Next(0, this.Height);
+                var j = random.Next(0, this.Width);
+                if (this.Cells[i, j].CellType != CellType.Mine)
+                {
+                    this.Cells[i, j].CellType = CellType.Mine;
+                    addedMinesCount++;
+                }
+            }
+            foreach (var cell in Cells)
+            {
+                setMineCounter(cell);
+            }
         }
 
-        private void Cell_MouseClick(object sender, MouseEventArgs e)
+        private void setMineCounter(Cell cell)
+        {
+            var counter = 0;
+            if (cell.CellType == CellType.Mine)
+            {
+                return;
+            }
+            
+            for (var i = Math.Max(0, cell.YLoc - 1); i <= Math.Min(Height - 1, cell.YLoc + 1); i++)
+            {
+                for (var j = Math.Max(0, cell.XLoc - 1); j <= Math.Min(Width - 1, cell.XLoc + 1); j++)
+                {
+                    if (i == cell.YLoc && j == cell.XLoc)
+                    {
+                        continue;
+                    }
+                    if (Cells[i, j].CellType == CellType.Mine)
+                    {
+                        counter++;
+                    }
+                }
+            }
+
+            cell.NumMines = counter;
+        }
+
+        public void Cell_MouseClick(object sender, MouseEventArgs e)
         {
             var cell = (Cell) sender;
 
@@ -51,16 +101,110 @@ namespace Minesweeper.Core
             {
                 case MouseButtons.Left:
                     cell.OnClick();
+                    GameEnd();
+                    OpenZeros(cell);
                     break;
 
                 case MouseButtons.Right:
                     cell.OnFlag();
+                    GameEnd();
                     break;
 
                 default:
                     return;
             }
 
+        }
+
+        public void GameEnd()
+        {
+            if (IsWinCondition())
+            {
+                GameEndMessage("You won!");
+            }
+
+            if (IsLoseCondition())
+            {
+                foreach (var cell in Cells)
+                {
+                    if (cell.CellType == CellType.Mine)
+                    {
+                        cell.OnClick();
+                    }
+                }
+                GameEndMessage("You lost :(");
+            }
+        }
+
+        public void GameEndMessage(string message)
+        {
+            var title = "Game Over";
+            var result = MessageBox.Show(
+                message,
+                title,
+                MessageBoxButtons.RetryCancel,
+                MessageBoxIcon.Question
+            );
+            switch (result)
+            {
+                case DialogResult.Retry: // Yes button pressed
+                    Application.Restart();
+                    break;
+                case DialogResult.Cancel: // No button pressed
+                    Application.Exit();
+                    break;
+            }
+        }
+
+        public void OpenZeros(Cell cell)
+        {
+            if (cell.NumMines != 0 || cell.CellType == CellType.Mine)
+            {
+                return;
+            }
+            for (var i = Math.Max(0, cell.YLoc - 1); i <= Math.Min(Height - 1, cell.YLoc + 1); i++)
+            {
+                for (var j = Math.Max(0, cell.XLoc - 1); j <= Math.Min(Width - 1, cell.XLoc + 1); j++)
+                {
+                    if (i == cell.YLoc && j == cell.XLoc)
+                    {
+                        continue;
+                    }
+                    if (Cells[i, j].CellType != CellType.Mine && Cells[i, j].CellType != CellType.Flagged &&
+                        Cells[i, j].CellType != CellType.FlaggedMine && Cells[i, j].CellState != CellState.Opened)
+                    {
+                        Cells[i, j].OnClick();
+                        OpenZeros(Cells[i, j]);
+                    }
+                }
+            }
+        }
+
+        public bool IsWinCondition()
+        {
+            foreach (var cell in Cells)
+            {
+                if (cell.CellType == CellType.Flagged || 
+                    (cell.CellType == CellType.Regular && cell.CellState == CellState.Closed))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public bool IsLoseCondition()
+        {
+            foreach (var cell in Cells)
+            {
+                if (cell.CellType == CellType.Mine && cell.CellState == CellState.Opened)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
