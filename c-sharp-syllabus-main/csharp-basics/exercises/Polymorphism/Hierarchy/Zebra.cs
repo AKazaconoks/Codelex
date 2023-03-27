@@ -16,7 +16,7 @@ namespace Hierarchy
 
         public override void EatFood(Food food)
         {
-            if (food.GetType().Name == "Vegetables")
+            if (food.GetType().Name == "Vegetable")
             {
                 _foodEaten += food.GetFoodQuantity();
                 Console.WriteLine(ToString());

@@ -20,7 +20,7 @@ namespace VendingMachine
             Amount = amount;
             Products = new Product[50];
             _lastMoneyInput = new Money(0, 0);
-            _numbers = Enumerable.Range(1, 50).ToList();
+            _numbers = Enumerable.Range(0, 49).ToList();
         }
 
         public Money InsertCoin(Money amount)
@@ -45,22 +45,19 @@ namespace VendingMachine
 
         public bool AddProduct(string name, Money price, int count)
         {
-            if (_numbers.Count > 0)
-            {
-                var productNumber = _numbers.First();
-                _numbers.Remove(productNumber);
-                Products[productNumber] = new Product(count, price, name, productNumber);
-                return true;
-            }
+            if (_numbers.Count <= 0) throw new VendingMachineExceptions("Vending machine is full");
+            var productNumber = _numbers.First();
+            _numbers.Remove(productNumber);
+            Products[productNumber] = new Product(count, price, name, productNumber);
+            return true;
 
-            throw new VendingMachineExceptions("Vending machine is full");
         }
 
         public bool UpdateProduct(int productNumber, string name, Money? price, int amount)
         {
             try
             {
-                var product = Products[productNumber];
+                ref var product = ref Products[productNumber];
                 if (price != null)
                 {
                     product.Price = (Money)price;
