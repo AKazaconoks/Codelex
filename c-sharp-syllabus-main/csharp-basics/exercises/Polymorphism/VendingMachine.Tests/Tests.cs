@@ -6,13 +6,11 @@ namespace VendingMachine.Tests;
 [TestFixture]
 public class Tests
 {
-    private IFixture _fixture;
     private VendingMachine _vendingMachine;
 
     [SetUp]
     public void SetUp()
     {
-        _fixture = new Fixture().Customize(new AutoMoqCustomization());
         _vendingMachine = new VendingMachine("Test", false, new Money(0, 0));
     }
 
