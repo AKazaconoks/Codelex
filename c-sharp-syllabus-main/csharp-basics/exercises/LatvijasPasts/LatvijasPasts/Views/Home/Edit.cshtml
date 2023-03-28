@@ -1,0 +1,158 @@
+﻿@model LatvijasPasts.Models.DetailedCvViewModel
+
+@{
+     ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>DetailedCvViewModel</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <h5>Primary Data</h5>
+            <input type="hidden" asp-for="PrimaryData.Id" />
+            <div class="form-group">
+                <label asp-for="PrimaryData.FirstName"></label>
+                <input asp-for="PrimaryData.FirstName" class="form-control"/>
+                <span asp-validation-for="PrimaryData.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrimaryData.LastName"></label>
+                <input asp-for="PrimaryData.LastName" class="form-control"/>
+                <span asp-validation-for="PrimaryData.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrimaryData.PhoneNumber"></label>
+                <input asp-for="PrimaryData.PhoneNumber" class="form-control"/>
+                <span asp-validation-for="PrimaryData.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrimaryData.EmailAddress"></label>
+                <input asp-for="PrimaryData.EmailAddress" class="form-control"/>
+                <span asp-validation-for="PrimaryData.EmailAddress" class="text-danger"></span>
+            </div>
+
+
+            <h5>Education Data</h5>
+            @for (int i = 0; i < Model.EducationData.Count; i++)
+            {
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <input type="hidden" asp-for="EducationData[i].EducationId" />
+                        <input type="hidden" asp-for="EducationData[i].PrimaryDataId" />
+                        <div class="form-group">
+                            <label asp-for="EducationData[i].EducationName"></label>
+                            <input asp-for="EducationData[i].EducationName" class="form-control"/>
+                            <span asp-validation-for="EducationData[i].EducationName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EducationData[i].EducationFaculty"></label>
+                            <input asp-for="EducationData[i].EducationFaculty" class="form-control"/>
+                            <span asp-validation-for="EducationData[i].EducationFaculty" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EducationData[i].EducationDirection"></label>
+                            <input asp-for="EducationData[i].EducationDirection" class="form-control"/>
+                            <span asp-validation-for="EducationData[i].EducationDirection" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EducationData[i].EducationDirection"></label>
+                            <input asp-for="EducationData[i].EducationDirection" class="form-control"/>
+                            <span asp-validation-for="EducationData[i].EducationDirection" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EducationData[i].EducationLevel"></label>
+                            <input asp-for="EducationData[i].EducationLevel" class="form-control"/>
+                            <span asp-validation-for="EducationData[i].EducationLevel" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EducationData[i].EducationStatus"></label>
+                            <input asp-for="EducationData[i].EducationStatus" class="form-control"/>
+                            <span asp-validation-for="EducationData[i].EducationStatus" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <h5>Workplace Data</h5>
+            @for (int i = 0; i < Model.WorkplaceData.Count; i++)
+            {
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <input type="hidden" asp-for="WorkplaceData[i].Id" />
+                            <input type="hidden" asp-for="WorkplaceData[i].PrimaryDataId" />
+                        <div class="form-group">
+                            <label asp-for="WorkplaceData[i].WorkplaceName"></label>
+                            <input asp-for="WorkplaceData[i].WorkplaceName" class="form-control"/>
+                            <span asp-validation-for="WorkplaceData[i].WorkplaceName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="WorkplaceData[i].WorkplaceTitle"></label>
+                            <input asp-for="WorkplaceData[i].WorkplaceTitle" class="form-control"/>
+                            <span asp-validation-for="WorkplaceData[i].WorkplaceTitle" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="WorkplaceData[i].WorkplaceTenure"></label>
+                            <input asp-for="WorkplaceData[i].WorkplaceTenure" class="form-control"/>
+                            <span asp-validation-for="WorkplaceData[i].WorkplaceTenure" class="text-danger"></span>
+                        </div>
+                        <h5>Workplace Skill Data</h5>
+                        @for (int j = 0; j < Model.WorkplaceSkillData.Count; j++)
+                        {
+                            if (Model.WorkplaceData[i].Id == Model.WorkplaceSkillData[j].WorkplaceId)
+                            {
+                                <div class="card mb-2">
+                                    <div class="card-body">
+                                        <input type="hidden" asp-for="WorkplaceSkillData[j].SkillId" />
+                                                    <input type="hidden" asp-for="WorkplaceSkillData[j].WorkplaceId" />
+                                        <div class="form-group">
+                                            <label asp-for="WorkplaceSkillData[j].SkillDescription"></label>
+                                            <input asp-for="WorkplaceSkillData[j].SkillDescription" class="form-control"/>
+                                            <span asp-validation-for="WorkplaceSkillData[j].SkillDescription" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="WorkplaceSkillData[j].SkillType"></label>
+                                            <input asp-for="WorkplaceSkillData[j].SkillType" class="form-control"/>
+                                            <span asp-validation-for="WorkplaceSkillData[j].SkillType" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            }
+
+            <h5>Language Data</h5>
+            @for (int i = 0; i < Model.LanguageData.Count; i++)
+            {
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <input type="hidden" asp-for="LanguageData[i].Id" />
+                        <input type="hidden" asp-for="LanguageData[i].PrimaryDataId" />
+                        <div class="form-group">
+                            <label asp-for="LanguageData[i].Language"></label>
+                            <input asp-for="LanguageData[i].Language" class="form-control"/>
+                            <span asp-validation-for="LanguageData[i].Language" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="ViewCvs">Back to List</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

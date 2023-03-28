@@ -1,0 +1,15 @@
+﻿@model LatvijasPasts.Models.PrimaryDataModel
+
+@{
+    ViewData["Title"] = "DeleteCv";
+}
+
+<h1>Izdzēst ierakstu</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <form asp-action="DeleteCv">
+        <input type="submit" value="Delete" class="btn btn-danger" asp-action="ViewCvs"/> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
