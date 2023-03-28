@@ -28,15 +28,8 @@ namespace Delfi.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(ApplicationUser model, IFormFile file)
         {
-            var defaultImage = "ebc3bf16-564b-4737-b010-c39dd9bf3234nofile.png";
-            var user = await _userManager.GetUserAsync(User);
-            var fileName = UploadPhoto(file);
-            user.UserName = model.UserName;
-            user.Email = model.Email;
-            user.Category = model.Category;
-            user.Amount = model.Amount;
-            user.Avatar = fileName == defaultImage ? user.Avatar ?? defaultImage : fileName;
-
+            var user = await UserService.GetUser(User);
+            UserService.UpdateSettings(model, user, file);
             var result = await _userManager.UpdateAsync(user);
 
             if (!result.Succeeded)
@@ -51,27 +44,5 @@ namespace Delfi.Controllers
 
             return RedirectToAction("Index");
         }
-        
-        public string UploadPhoto(IFormFile file)
-        {
-            if (file != null)
-            {
-                var fileName = Path.GetFileName(file.FileName);
-                var random = Guid.NewGuid() + fileName;
-                var path = Path.Combine(_webHostEnvironment.WebRootPath, "Content/Images/UserPhotos", random);
-                var filePathToSave = "UserPhotos/" + random;
-                if (!Directory.Exists(Path.GetDirectoryName(path)))
-                {
-                    Directory.CreateDirectory(Path.GetDirectoryName(path));
-                }
-                using var fileStream = new FileStream(path, FileMode.Create);
-                file.CopyTo(fileStream);
-
-                return random;
-            }
-            return "ebc3bf16-564b-4737-b010-c39dd9bf3234nofile.png";
-        }
-
-
     }
 }
