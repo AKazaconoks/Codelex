@@ -47,37 +47,7 @@ public class RentalCompany : IRentalCompany
 
         scooter.IsRented = false;
         scooter.RentEnd = DateTime.Now;
-        var totalAmount = 0m;
-
-        if (scooter.RentEnd.Day == scooter.RentStart.Day)
-        {
-            totalAmount += (60 * (scooter.RentEnd.Hour - scooter.RentStart.Hour) + scooter.RentEnd.Minute -
-                            scooter.RentStart.Minute) *
-                scooter.PricePerMinute >= 20
-                    ? 20
-                    : (60 * (scooter.RentEnd.Hour - scooter.RentStart.Hour) + scooter.RentEnd.Minute -
-                       scooter.RentStart.Minute) * scooter.PricePerMinute;
-            _journal.TryAdd(scooter.RentEnd, totalAmount);
-            return totalAmount;
-        }
-
-        for (var date = scooter.RentStart; date <= scooter.RentEnd; date = date.AddMinutes(60 * (23 - date.Hour) + 60 - date.Minute))
-        {
-            if (date.Day == scooter.RentEnd.Day)
-            {
-                totalAmount += (60 * (scooter.RentEnd.Hour) + scooter.RentEnd.Minute) *
-                    scooter.PricePerMinute >= 20
-                        ? 20
-                        : (60 * (scooter.RentEnd.Hour) + scooter.RentEnd.Minute) * scooter.PricePerMinute;
-            }
-            else
-            {
-                totalAmount += (60 * (23 - date.Hour) + 60 - date.Minute) * scooter.PricePerMinute >= 20
-                    ? 20
-                    : (60 * (23 - date.Hour) + 60 - date.Minute) * scooter.PricePerMinute;
-            }
-        }
-
+        var totalAmount = CalculatePrice(scooter);
         _journal.TryAdd(scooter.RentEnd, totalAmount);
         return totalAmount;
     }
@@ -109,5 +79,40 @@ public class RentalCompany : IRentalCompany
             scooter.PricePerMinute);
 
         return totalIncome;
+    }
+
+    private decimal CalculatePrice(Scooter scooter)
+    {
+        var totalAmount = 0m;
+
+        if (scooter.RentEnd.Day == scooter.RentStart.Day)
+        {
+            totalAmount += (60 * (scooter.RentEnd.Hour - scooter.RentStart.Hour) + scooter.RentEnd.Minute -
+                            scooter.RentStart.Minute) *
+                scooter.PricePerMinute >= 20
+                    ? 20
+                    : (60 * (scooter.RentEnd.Hour - scooter.RentStart.Hour) + scooter.RentEnd.Minute -
+                       scooter.RentStart.Minute) * scooter.PricePerMinute;
+            return totalAmount;
+        }
+
+        for (var date = scooter.RentStart; date <= scooter.RentEnd; date = date.AddMinutes(60 * (23 - date.Hour) + 60 - date.Minute))
+        {
+            if (date.Day == scooter.RentEnd.Day)
+            {
+                totalAmount += (60 * (scooter.RentEnd.Hour) + scooter.RentEnd.Minute) *
+                    scooter.PricePerMinute >= 20
+                        ? 20
+                        : (60 * (scooter.RentEnd.Hour) + scooter.RentEnd.Minute) * scooter.PricePerMinute;
+            }
+            else
+            {
+                totalAmount += (60 * (23 - date.Hour) + 60 - date.Minute) * scooter.PricePerMinute >= 20
+                    ? 20
+                    : (60 * (23 - date.Hour) + 60 - date.Minute) * scooter.PricePerMinute;
+            }
+        }
+
+        return totalAmount;
     }
 }
