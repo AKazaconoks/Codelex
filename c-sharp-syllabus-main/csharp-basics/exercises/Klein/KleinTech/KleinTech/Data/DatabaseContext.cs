@@ -1,9 +1,10 @@
+using KleinTech.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using KleinTech.Models;
 
 namespace KleinTech.Data
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : DbContext, IDatabaseContext
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
@@ -14,7 +15,7 @@ namespace KleinTech.Data
         public DbSet<Address> Addresses { get; set; }
         public DbSet<PhoneNumber> PhoneNumbers { get; set; }
         public DbSet<SpouseDetails> SpouseDetails { get; set; }
-        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Person>()
@@ -24,7 +25,5 @@ namespace KleinTech.Data
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Restrict);
         }
-
-
-    }   
+    }
 }
